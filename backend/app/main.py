@@ -20,6 +20,8 @@ app = FastAPI(
     generate_unique_id_function=custom_generate_unique_id,
 )
 
+print("SuperUser :", settings.FIRST_SUPERUSER)
+
 # Set all CORS enabled origins
 if settings.all_cors_origins:
     app.add_middleware(

@@ -15,6 +15,10 @@ def test_get_users_superuser_me(
     client: TestClient, superuser_token_headers: dict[str, str]
 ) -> None:
     r = client.get(f"{settings.API_V1_STR}/users/me", headers=superuser_token_headers)
+
+    print(f"응답상태 코드: {r.status_code}")
+    print(f"응답본문: {r.json()}")
+
     current_user = r.json()
     assert current_user
     assert current_user["is_active"] is True
